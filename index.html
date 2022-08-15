@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komputer Store</title>
+
+    <link rel="stylesheet" href="main.css" ; </head>
+
+<body>
+    <div class="topbar">
+        <p>Komputer Store</p>
+    </div>
+    <div class="wrapper">
+        <div class="box" id="bank">
+            <h3 class="boxtitle">Joe Banker</h3>
+            <span class="floatleft">Balance</span>
+            <span class="floatright" id="bankbalance">0.00 kr.</span>
+            <span class="floatleft" id="loantext">Outstanding loan</span>
+            <span class="floatright" id="loan">0.00 kr.</span>
+            <button class="button" id="loanbutton">Get a loan</button>
+        </div>
+        <div class="box" id="work">
+            <h3 class="boxtitle">Work</h3>
+            <span class="floatleft">Pay</span>
+            <span class="floatright" id="paybalance">0.00 kr.</span>
+            <button class="button" id="repaybutton">Repay loan</button>
+            <button class="button" id="bankbutton">Bank</button>
+            <button class="button" id="workbutton">Work</button>
+        </div>
+        <div class="box" id="laptop">
+            <h3 class="boxtitle">Laptops</h3>
+            <select id="computerselect"></select>
+            <h4 class="subtitle">Features:</h4>
+            <span id="specs"></span>
+        </div>
+        <div class="box" id="purchase">
+            <img src="https://noroff-komputer-store-api.herokuapp.com/assets/images/1.png" alt="computer"
+                id="img-pc"></img>
+            <div id="computerinfo">
+                <h2 id="computername">Classic Notebook</h2>
+                <p id="computerdetails">A little old, but turns on.</p>
+            </div>
+            <h2 id="price">200 NOK</h2>
+            <button class="button" id="buybutton">BUY NOW</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

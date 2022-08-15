@@ -1,0 +1,242 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+	margin-left: 5%;
+	font-size: 14px;
+	padding-bottom: 1px;
+}
+
+.topbar {
+	background-color: #333333;
+	overflow: hidden;
+}
+
+.topbar p {
+	color: whitesmoke;
+	float: left;
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 10%;
+	padding-bottom: 10px;
+	font-size: 22px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+.wrapper {
+	overflow: hidden;
+	margin-left: 3%;
+}
+
+.box {
+	position: relative;
+	background-color: white;
+	border-radius: 10px;
+	width: 30%;
+	height: 300px;
+	margin: 1%;
+	border: 1px;
+	border-color: #464646;
+	border-style: solid;
+	overflow: hidden;
+	filter: drop-shadow(5px 6px 4px #6e6e6e);
+}
+
+.button {
+	position: absolute;
+	bottom: 5%;
+	border-radius: 15px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.button:hover {
+	filter: drop-shadow(1px 2px 1px #6e6e6e);
+}
+
+.floatleft {
+	float: left;
+	width: 50%;
+	padding-left: 5%;
+}
+
+.floatright {
+	float: right;
+	padding-right: 5%;
+}
+
+.boxtitle {
+	float: left;
+	padding-left: 5%;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.subtitle {
+	float: left;
+	padding-left: 5%;
+	width: 100%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+#loanbutton {
+	background-color: #4bf0a1;
+	width: 90%;
+	height: 15%;
+	left: 5%;
+}
+
+#loanbutton:hover {
+	background-color: #40d38c;
+}
+
+#loanbutton:active {
+	background-color: #02ff85;
+	box-shadow: 0 3px #666;
+	transform: translateY(4px);
+}
+
+#bankbutton {
+	background-color: #edef4d;
+	width: 43%;
+	height: 15%;
+	left: 5%;
+}
+
+#bankbutton:hover {
+	background-color: #cfd13f;
+}
+
+#bankbutton:active {
+	background-color: #f5f840;
+	box-shadow: 0 3px #666;
+	transform: translateY(4px);
+}
+
+#workbutton {
+	background-color: #4d70f0;
+	width: 43%;
+	height: 15%;
+	right: 5%;
+	color: whitesmoke;
+}
+
+#workbutton:hover {
+	background-color: #4162d8;
+}
+
+#workbutton:active {
+	background-color: #416aff;
+	box-shadow: 0 3px #666;
+	transform: translateY(4px);
+}
+
+#repaybutton {
+	background-color: rgb(226, 120, 48);
+	width: 90%;
+	height: 15%;
+	right: 5%;
+	bottom: 23%;
+}
+
+#repaybutton:hover {
+	background-color: rgb(194, 102, 41);
+}
+
+#repaybutton:active {
+	background-color: rgb(255, 102, 0);
+	box-shadow: 0 3px #666;
+	transform: translateY(4px);
+}
+
+#buybutton {
+	position: absolute;
+	left: 70%;
+	bottom: 20%;
+	background-color: #4bc9f1;
+	width: 25%;
+	height: 15%;
+}
+
+#buybutton:hover {
+	background-color: #36a9cc;
+}
+
+#buybutton:active {
+	background-color: #00c3ff;
+	box-shadow: 0 3px #666;
+	transform: translateY(4px);
+}
+
+#computerselect {
+	width: 90%;
+	margin-left: 5%;
+}
+
+#img-pc {
+	position: absolute;
+	top: -100%;
+	left: 3%;
+	bottom: -100%;
+	max-height: 90%;
+	max-width: 30%;
+	margin: auto;
+}
+
+#specs {
+	left: 0;
+}
+
+#bank {
+	float: left;
+}
+
+#work {
+	float: left;
+}
+
+#laptop {
+	float: left;
+}
+
+#purchase {
+	float: center;
+	margin-top: 110px;
+	width: 94.5%;
+}
+
+#price {
+	position: absolute;
+	margin: auto;
+	top: 25%;
+	left: 76%;
+	right: 5%;
+	font-size: 30px;
+}
+
+#priceinfo {
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(1, 1fr);
+	grid-column-gap: 2px;
+	align-items: center;
+	width: 30%;
+	margin: auto;
+	margin-top: 4%;
+}
+
+#computerinfo {
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(1, 1fr);
+	grid-column-gap: 2px;
+	align-items: center;
+	width: 30%;
+	margin: auto;
+	margin-top: 3%;
+}
