@@ -1,26 +1,22 @@
 //* prepare references to doc elements
-const payBalanceElement = document.getElementById('paybalance');
-const bankBalanceElement = document.getElementById('bankbalance');
-const outstandingLoanElement = document.getElementById('loan');
-const outstandingLoanTextElement = document.getElementById('loantext');
-const computerPriceElement = document.getElementById('price');
-const computerTitleElement = document.getElementById('computername');
-const computerDescriptionElement = document.getElementById('computerdetails');
+const payBalanceElement = document.getElementById('payment-amount');
+const bankBalanceElement = document.getElementById('balance-amount');
+const outstandingLoanElement = document.getElementById('loan-amount');
+const outstandingLoanTextElement = document.getElementById('loan-text');
+const computerPriceElement = document.getElementById('computer-price');
+const computerTitleElement = document.getElementById('computer-name');
+const computerDescriptionElement = document.getElementById('computer-details');
 
-const workButtonElement = document.getElementById('workbutton');
-const loanButtonElement = document.getElementById('loanbutton');
-const bankButtonElement = document.getElementById('bankbutton');
-const repayButtonElement = document.getElementById('repaybutton');
-const buyButtonElement = document.getElementById('buybutton');
+const workButtonElement = document.getElementById('work-button');
+const loanButtonElement = document.getElementById('loan-button');
+const bankButtonElement = document.getElementById('bank-button');
+const repayButtonElement = document.getElementById('repay-button');
+const buyButtonElement = document.getElementById('buy-button');
 
-const computerSelectElement = document.getElementById('computerselect');
-const computerSpecsElement = document.getElementById('specs');
+const computerSelectElement = document.getElementById('computer-select');
+const computerSpecsElement = document.getElementById('computer-specs');
 
-const bankBoxElement = document.getElementById('bank');
-const workBoxElement = document.getElementById('work');
-const laptopsBoxElement = document.getElementById('laptop');
-
-const computerImageElement = document.getElementById('img-pc');
+const computerImageElement = document.getElementById('computer-image');
 
 //* global variables
 let payment = 0;

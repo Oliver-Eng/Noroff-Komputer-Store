@@ -13,6 +13,7 @@ li {
 .topbar {
 	background-color: #333333;
 	overflow: hidden;
+	margin-bottom: 1%;
 }
 
 .topbar p {
@@ -27,28 +28,51 @@ li {
 	margin: 0;
 }
 
-.wrapper {
-	overflow: hidden;
-	margin-left: 3%;
+.parent {
+	display: grid;
+	justify-self: center;
+	grid-template-columns: 32% 32% 32%;
+	grid-template-rows: (2, 1fr);
+	grid-column-gap: 2%;
+	grid-row-gap: 3%;
+	margin: 10px;
 }
 
 .box {
-	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	width: 100%;
+	min-height: 300px;
+	max-height: 600px;
 	background-color: white;
-	border-radius: 10px;
-	width: 30%;
-	height: 300px;
-	margin: 1%;
 	border: 1px;
 	border-color: #464646;
 	border-style: solid;
-	overflow: hidden;
 	filter: drop-shadow(5px 6px 4px #6e6e6e);
 }
 
+.box-inner {
+	margin: 10%;
+	margin-top: -1%;
+	margin-bottom: -1%;
+}
+
+.computer-box-inner {
+	margin: 1%;
+	display: grid;
+	position: relative;
+	grid-template-columns: 20% 40% 40%;
+}
+
+.right-amount {
+	font-weight: bold;
+	float: right;
+}
+
 .button {
-	position: absolute;
-	bottom: 5%;
 	border-radius: 15px;
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
@@ -58,67 +82,72 @@ li {
 	filter: drop-shadow(1px 2px 1px #6e6e6e);
 }
 
-.floatleft {
-	float: left;
-	width: 50%;
-	padding-left: 5%;
+.block-container {
+	height: 10%;
+	display: block;
 }
 
-.floatright {
-	float: right;
-	padding-right: 5%;
+#box1 {
+	grid-area: 1 / 1 / 2 / 2;
 }
 
-.boxtitle {
-	float: left;
-	padding-left: 5%;
-	width: 100%;
-	font-family: Arial, Helvetica, sans-serif;
+#box2 {
+	grid-area: 1 / 2 / 2 / 3;
 }
 
-.subtitle {
-	float: left;
-	padding-left: 5%;
-	width: 100%;
-	margin-top: 2%;
-	margin-bottom: 2%;
+#box3 {
+	grid-area: 1 / 3 / 2 / 4;
 }
 
-#loanbutton {
+#box4 {
+	grid-area: 2 / 1 / 3 / 4;
+}
+
+#computer-specs {
+	margin-right: 2%;
+}
+
+#loan-button {
+	position: absolute;
+	bottom: 5%;
 	background-color: #4bf0a1;
 	width: 90%;
 	height: 15%;
 	left: 5%;
 }
 
-#loanbutton:hover {
+#loan-button:hover {
 	background-color: #40d38c;
 }
 
-#loanbutton:active {
+#loan-button:active {
 	background-color: #02ff85;
 	box-shadow: 0 3px #666;
 	transform: translateY(4px);
 }
 
-#bankbutton {
+#bank-button {
+	position: absolute;
+	bottom: 5%;
 	background-color: #edef4d;
 	width: 43%;
 	height: 15%;
 	left: 5%;
 }
 
-#bankbutton:hover {
+#bank-button:hover {
 	background-color: #cfd13f;
 }
 
-#bankbutton:active {
+#bank-button:active {
 	background-color: #f5f840;
 	box-shadow: 0 3px #666;
 	transform: translateY(4px);
 }
 
-#workbutton {
+#work-button {
+	position: absolute;
+	bottom: 5%;
 	background-color: #4d70f0;
 	width: 43%;
 	height: 15%;
@@ -126,17 +155,19 @@ li {
 	color: whitesmoke;
 }
 
-#workbutton:hover {
+#work-button:hover {
 	background-color: #4162d8;
 }
 
-#workbutton:active {
+#work-button:active {
 	background-color: #416aff;
 	box-shadow: 0 3px #666;
 	transform: translateY(4px);
 }
 
-#repaybutton {
+#repay-button {
+	position: absolute;
+	bottom: 5%;
 	background-color: rgb(226, 120, 48);
 	width: 90%;
 	height: 15%;
@@ -144,99 +175,84 @@ li {
 	bottom: 23%;
 }
 
-#repaybutton:hover {
+#repay-button:hover {
 	background-color: rgb(194, 102, 41);
 }
 
-#repaybutton:active {
+#repay-button:active {
 	background-color: rgb(255, 102, 0);
 	box-shadow: 0 3px #666;
 	transform: translateY(4px);
 }
 
-#buybutton {
+#buy-button {
+	bottom: 25%;
 	position: absolute;
-	left: 70%;
-	bottom: 20%;
 	background-color: #4bc9f1;
 	width: 25%;
 	height: 15%;
 }
 
-#buybutton:hover {
+#buy-button:hover {
 	background-color: #36a9cc;
 }
 
-#buybutton:active {
+#buy-button:active {
 	background-color: #00c3ff;
 	box-shadow: 0 3px #666;
 	transform: translateY(4px);
 }
 
-#computerselect {
-	width: 90%;
-	margin-left: 5%;
+#computer-select {
+	width: 100%;
 }
 
-#img-pc {
+#image-container {
+	display: inline-block;
+	position: relative;
+}
+
+#computer-image {
+	max-height: 100%;
+	max-width: 100%;
 	position: absolute;
-	top: -100%;
-	left: 3%;
-	bottom: -100%;
-	max-height: 90%;
-	max-width: 30%;
-	margin: auto;
-}
-
-#specs {
+	top: 0;
+	bottom: 0;
 	left: 0;
+	right: 1;
+	margin: auto;
 }
 
-#bank {
-	float: left;
-}
-
-#work {
-	float: left;
-}
-
-#laptop {
-	float: left;
-}
-
-#purchase {
-	float: center;
-	margin-top: 110px;
-	width: 94.5%;
-}
-
-#price {
+#computer-name {
 	position: absolute;
-	margin: auto;
+	top: 15%;
+	margin-left: 5%;
+	width: 30%;
+	font-size: min(5vw, 30px);
+}
+
+#computer-details {
+	position: fixed;
+	top: 40%;
+	margin-left: 5%;
+	width: 30%;
+	font-size: min(7vw, 15px);
+}
+
+#computer-info {
+	display: flex;
+	justify-content: center;
+}
+
+#computer-purchase {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+}
+
+#computer-price {
+	position: absolute;
 	top: 25%;
-	left: 76%;
-	right: 5%;
-	font-size: 30px;
-}
-
-#priceinfo {
-	display: grid;
-	position: relative;
-	grid-template-columns: repeat(1, 1fr);
-	grid-column-gap: 2px;
-	align-items: center;
-	width: 30%;
-	margin: auto;
-	margin-top: 4%;
-}
-
-#computerinfo {
-	display: grid;
-	position: relative;
-	grid-template-columns: repeat(1, 1fr);
-	grid-column-gap: 2px;
-	align-items: center;
-	width: 30%;
-	margin: auto;
-	margin-top: 3%;
+	font-size: min(7vw, 25px);
 }
