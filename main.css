@@ -258,3 +258,7 @@ li {
 	top: 25%;
 	font-size: min(7vw, 25px);
 }
+
+#loan-text {
+	float: left;
+}

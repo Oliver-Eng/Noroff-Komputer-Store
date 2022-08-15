@@ -191,6 +191,7 @@ const getLoan = () => {
 };
 
 const bankPayment = () => {
+	let rememberLoan = 0;
 	// check if user already has a loan
 	if (hasLoan) {
 		alert(
@@ -199,32 +200,34 @@ const bankPayment = () => {
         ${payment * 0.1} kr. have been used for repayment of loan.`
 		);
 		// subtract 10% of bank payment for loan
+		rememberLoan = outstandingLoan;
 		outstandingLoan -= payment * 0.1;
 		payment *= 0.9;
 	}
 
 	balance += payment;
-	payment = 0;
 
 	// check if user has negative outstanding loan balance and reimburse them
-	reimburse(0, false);
+	reimburse(rememberLoan, false);
+
+	payment = 0;
 
 	// update balance, pay and loan elements
 	updateAmounts();
 };
 
 const repayLoan = () => {
-	const rememberLoan = outstandingLoan;
 	outstandingLoan -= payment;
 
 	// check if outstanding loan value is negative and reimburse user balance if needed
 	outstandingLoan >= 0 ? reimburse(rememberLoan, false) : reimburse(rememberLoan, true);
 
-	payment = 0;
 	updateAmounts();
 };
 
 const reimburse = (loan, showMessage) => {
+	// remember payment for reimbursement message
+	const rememberPayment = parseInt(payment);
 	if (showMessage == true) {
 		alert(
 			`${payment} kr. has gone toward the repayment of your ${loan} kr. loan. The remaining ${
@@ -234,12 +237,20 @@ const reimburse = (loan, showMessage) => {
 	}
 	// reimburse user for overpayment
 	if (outstandingLoan < 0) {
+		alert(
+			`$An additional {-parseInt(outstandingLoan)} kr. has been added to your account balance as you overpaid, as you paid ${
+				loan + -parseInt(outstandingLoan)
+			} kr. on a ${loan} kr. loan. Total amount transfered to account = ${
+				payment + -parseInt(outstandingLoan)
+			} kr.`
+		);
 		balance -= parseInt(outstandingLoan);
 		outstandingLoan = 0;
 	}
 	if (outstandingLoan == 0) {
 		hasLoan = false;
 	}
+	payment = 0;
 };
 
 const buyComputer = () => {
