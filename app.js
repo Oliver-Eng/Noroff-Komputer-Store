@@ -249,7 +249,7 @@ const buyComputer = () => {
 		balance -= computerPrice;
 	} else {
 		alert(
-			`You can not afford this computer. Your balance is: ${balance} kr., while the computer costs ${computerrice} kr.`
+			`You can not afford this computer. Your balance is: ${balance} kr., while the computer costs ${computerPrice} kr.`
 		);
 	}
 	// update various amounts
