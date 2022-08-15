@@ -221,7 +221,7 @@ const repayLoan = () => {
 	outstandingLoan -= payment;
 
 	// check if outstanding loan value is negative and reimburse user balance if needed
-	reimburse(rememberLoan);
+	reimburse(rememberLoan, true);
 
 	payment = 0;
 	updateAmounts();
