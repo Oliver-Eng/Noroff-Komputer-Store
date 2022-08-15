@@ -1,4 +1,4 @@
-// element references
+//* prepare references to doc elements
 const payBalanceElement = document.getElementById('paybalance');
 const bankBalanceElement = document.getElementById('bankbalance');
 const outstandingLoanElement = document.getElementById('loan');
@@ -22,7 +22,7 @@ const laptopsBoxElement = document.getElementById('laptop');
 
 const computerImageElement = document.getElementById('img-pc');
 
-// global variables
+//* global variables
 let payment = 0;
 let balance = 0;
 let outstandingLoan = 0;
@@ -30,12 +30,12 @@ let hasLoan = false;
 let computers = [];
 let computerPrice = 0;
 
-// hide loan elements
+//* hide loan elements on start
 outstandingLoanElement.style.display = 'none';
 outstandingLoanTextElement.style.display = 'none';
 repayButtonElement.style.display = 'none';
 
-// fetch data from noroff computer endpoint
+// fetch data from endpoint
 fetch('https://noroff-komputer-store-api.herokuapp.com/computers')
 	.then((response) => response.json().then())
 	.then((data) => (computers = data))
@@ -61,13 +61,19 @@ const addComputersToList = (computers) => {
 };
 
 const addComputerToList = (computer) => {
-	// You added two new entires with only an ID... So just checking if it has necessary entries
+	// some entries without necessary data... checking if it has necessary data
 	if (computer.title && computer.description && computer.price && computer.specs && computer.image) {
 		const computerElement = document.createElement('option');
 		computerElement.value = computer.id;
 		computerElement.appendChild(document.createTextNode(computer.title));
 		computerSelectElement.appendChild(computerElement);
 	}
+};
+
+const updateVisualElements = (specs, image, title, description, price) => {
+	addSpecsToList(specs);
+	addImageToShowcase(image);
+	updateComputerShowcase(title, description, price);
 };
 
 const addSpecsToList = (specs) => {
@@ -78,12 +84,6 @@ const addSpecsToList = (specs) => {
 		computerSpecsElement.appendChild(specElement);
 		console.log(spec);
 	});
-};
-
-const updateVisualElements = (specs, image, title, description, price) => {
-	addSpecsToList(specs);
-	addImageToShowcase(image);
-	updateComputerShowcase(title, description, price);
 };
 
 const addImageToShowcase = (image) => {
@@ -131,6 +131,7 @@ const updateComputerShowcase = (title, description, price) => {
 	computerPriceElement.innerText = `${price} NOK`;
 };
 
+// handle change of computer in select element
 const handleComputerListChange = (element) => {
 	const selectedComputer = computers[element.target.selectedIndex];
 	[title, description, price, specs, image] = [
