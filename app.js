@@ -217,6 +217,7 @@ const bankPayment = () => {
 };
 
 const repayLoan = () => {
+	const rememberLoan = outstandingLoan;
 	outstandingLoan -= payment;
 
 	// check if outstanding loan value is negative and reimburse user balance if needed
@@ -228,7 +229,7 @@ const repayLoan = () => {
 const reimburse = (loan, showMessage) => {
 	// remember payment for reimbursement message
 	const rememberPayment = parseInt(payment);
-	if (showMessage == true) {
+	if (showMessage) {
 		alert(
 			`${payment} kr. has gone toward the repayment of your ${loan} kr. loan. The remaining ${
 				payment - loan
@@ -237,13 +238,17 @@ const reimburse = (loan, showMessage) => {
 	}
 	// reimburse user for overpayment
 	if (outstandingLoan < 0) {
-		alert(
-			`$An additional {-parseInt(outstandingLoan)} kr. has been added to your account balance as you overpaid, as you paid ${
-				loan + -parseInt(outstandingLoan)
-			} kr. on a ${loan} kr. loan. Total amount transfered to account = ${
-				payment + -parseInt(outstandingLoan)
-			} kr.`
-		);
+		if (!showMessage) {
+			alert(
+				`An additional ${-parseInt(
+					outstandingLoan
+				)} kr. has been added to your account balance as you overpaid, as you paid ${
+					loan + -parseInt(outstandingLoan)
+				} kr. on a ${loan} kr. loan. Total amount transfered to account = ${
+					payment + -parseInt(outstandingLoan)
+				} kr.`
+			);
+		}
 		balance -= parseInt(outstandingLoan);
 		outstandingLoan = 0;
 	}
