@@ -257,11 +257,11 @@ const reimburse = (loan, showMessage) => {
 			alert(
 				`An additional ${-parseInt(
 					outstandingLoan
-				)} kr. has been added to your account balance as you overpaid, as you paid ${
+				)} kr. has been added to your account balance as you overpaid. You paid ${
 					loan + -parseInt(outstandingLoan)
-				} kr. on a ${loan} kr. loan. Total amount transfered to account = ${
-					payment + -parseInt(outstandingLoan)
-				} kr.`
+				} kr. on a ${loan} kr. loan. Total amount transferred to account = ${payment} kr. + ${-parseInt(
+					outstandingLoan
+				)} kr. = ${payment + -parseInt(outstandingLoan)} kr.`
 			);
 		}
 
