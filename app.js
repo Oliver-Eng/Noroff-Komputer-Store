@@ -78,7 +78,6 @@ const addSpecsToList = (specs) => {
 		const specElement = document.createElement('li');
 		specElement.appendChild(document.createTextNode(spec));
 		computerSpecsElement.appendChild(specElement);
-		console.log(spec);
 	});
 };
 
@@ -147,7 +146,6 @@ const handleComputerListChange = (element) => {
 
 // add 100 kr. to payment balance on click
 const doWork = () => {
-	console.log('Doing work');
 	payment += 100;
 	payBalanceElement.innerText = `${payment} kr.`;
 };
@@ -205,11 +203,16 @@ const bankPayment = () => {
 		payment *= 0.9;
 	}
 
+	// update account balance
 	balance += payment;
 
 	// check if user has negative outstanding loan balance and reimburse them
 	reimburse(rememberLoan, false);
 
+	// set has loan to false and set payment to 0
+	if (outstandingLoan == 0) {
+		hasLoan = false;
+	}
 	payment = 0;
 
 	// update balance, pay and loan elements
@@ -221,7 +224,15 @@ const repayLoan = () => {
 	outstandingLoan -= payment;
 
 	// check if outstanding loan value is negative and reimburse user balance if needed
-	outstandingLoan >= 0 ? reimburse(rememberLoan, false) : reimburse(rememberLoan, true);
+	if (outstandingLoan < 0) {
+		reimburse(rememberLoan, true);
+	}
+
+	// set has loan to false and set payment to 0
+	if (outstandingLoan == 0) {
+		hasLoan = false;
+	}
+	payment = 0;
 
 	updateAmounts();
 };
@@ -229,6 +240,8 @@ const repayLoan = () => {
 const reimburse = (loan, showMessage) => {
 	// remember payment for reimbursement message
 	const rememberPayment = parseInt(payment);
+
+	// display message if user chose repayment option
 	if (showMessage) {
 		alert(
 			`${payment} kr. has gone toward the repayment of your ${loan} kr. loan. The remaining ${
@@ -236,8 +249,10 @@ const reimburse = (loan, showMessage) => {
 			} kr. has been added to your account balance.`
 		);
 	}
+
 	// reimburse user for overpayment
 	if (outstandingLoan < 0) {
+		// show additional alert message if user overpaid on 10% payment
 		if (!showMessage) {
 			alert(
 				`An additional ${-parseInt(
@@ -249,13 +264,11 @@ const reimburse = (loan, showMessage) => {
 				} kr.`
 			);
 		}
+
+		// update balance and outstanding loan value
 		balance -= parseInt(outstandingLoan);
 		outstandingLoan = 0;
 	}
-	if (outstandingLoan == 0) {
-		hasLoan = false;
-	}
-	payment = 0;
 };
 
 const buyComputer = () => {
